@@ -20,11 +20,14 @@ class Xor8:
     def __del__(self):
         lib.xor8_free(self.__filter)
 
-    def populate(self, data: list):
+    def populate(self, data: list, deduplicate: bool = True):
         """
         Data can either be a list or iterable
         """
-        data = list(map(lambda x: c_ulonglong((hash(x))).value, data))
+        hashed_data = map(lambda x: c_ulonglong((hash(x))).value, data)
+        if deduplicate:
+            hashed_data = set(hashed_data)
+        data = list(hashed_data)
         return lib.xor8_buffered_populate(data, len(data), self.__filter)
 
     def contains(self, item):
