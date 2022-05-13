@@ -92,7 +92,6 @@ static inline void xor8_free(xor8_t *filter);
 static inline void xor16_free(xor16_t *filter);
 
 static inline xor_hashes_t xor8_get_h0_h1_h2(uint64_t k, const xor8_t *filter) ;
-static inline xor_h0h1h2_t xor8_get_just_h0_h1_h2(uint64_t hash, const xor8_t *filter) ;
 static inline uint32_t xor8_get_h0(uint64_t hash, const xor8_t *filter) ;
 static inline uint32_t xor8_get_h1(uint64_t hash, const xor8_t *filter) ;
 static inline uint32_t xor8_get_h2(uint64_t hash, const xor8_t *filter) ;
